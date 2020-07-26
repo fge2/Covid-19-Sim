@@ -3,8 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from person import Person
 import stats
-import population
-from population import Population
+from Population import Population
 import animate
 import math
 

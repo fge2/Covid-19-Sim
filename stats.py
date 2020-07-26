@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import population
+import Population
 from matplotlib.lines import Line2D
 
 
