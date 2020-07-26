@@ -4,7 +4,7 @@ import math
 from matplotlib.animation import FuncAnimation
 from person import Person
 import stats
-from Population import Population
+from population import Population
 import animate
 
 # implement socialdistancing/lockdown policies by freezing movement

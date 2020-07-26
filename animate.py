@@ -4,7 +4,7 @@ import math
 from matplotlib.animation import FuncAnimation
 from person import Person
 import stats
-from Population import Population
+from population import Population
 from matplotlib.lines import Line2D
 
 # module to provide animation functions
