@@ -18,8 +18,8 @@ import animate
 #           inactive: percentage of population to lockdown
 
 
-def updatev2(frame_number, pop, x1, x2, ax1, ax2, scat, colormap, rate, time, lockdown = 0.1, inactive = 0.9):
-    animate.update(frame_number, pop, x1, x2, ax1, ax2, scat, colormap, rate, time)
+def updatev2(frame_number, pop, status, ax1, ax2, scat, colormap, time, lockdown = 0.1, inactive = 0.9):
+    animate.update(frame_number, pop, status, ax1, ax2, scat, colormap, time)
     if len(pop.infected()) > lockdown * pop.pop_size():
         pop.lockdown(math.floor(inactive * pop.pop_size()))
 
@@ -29,10 +29,8 @@ if __name__ == "__main__":
 
     # set variables for frame
     fig, ax1, ax2 = animate.frame()
-    x1 = []
-    x2 = []
+    status = [[],[],[],[]]
     n_size = 400
-    rate = 1
     pop = Population(n_size)
 
     # textbox to track frame number
@@ -41,7 +39,9 @@ if __name__ == "__main__":
     # declare colors for scatter plot
     color1='black'
     color2='red'
-    colormap = np.array([color1,color2])
+    color3='green'
+    color4='gray'
+    colormap = np.array([color1,color2,color3,color4])
     categories = pop.status()
 
     # create graphs
@@ -49,6 +49,6 @@ if __name__ == "__main__":
     line = ax2.plot()
 
     # Construct the animation, using the update function as the animation director.
-    animation = FuncAnimation(fig, updatev2, fargs = [pop, x1, x2, ax1, ax2, scat, colormap, rate, time], interval=10)
-    fig.suptitle('Covid-19 Simulation: Lockdown at 10% infections')
+    animation = FuncAnimation(fig, updatev2, fargs = [pop, status, ax1, ax2, scat, colormap, time], interval=10)
+    fig.suptitle('Covid-19 Simulation: Lockdown at 10% of population infected')
     plt.show()

@@ -9,26 +9,34 @@ from matplotlib.lines import Line2D
 # args:
 #   axes: ax2 of main figure
 #   pop:  population data type
-#   x1:   list of number of healthy persons over time
-#   x2:   list of number of infected persons over time
+#   status: 2d list of current number of healthy/infected/recovered/dead people
 
-def create_stats(axes, pop, x1, x2):
+
+def create_stats(axes, pop, status):
     # append next data point
     healthy = pop.healthy()
     infected = pop.infected()
-    x1.append(len(healthy))
-    x2.append(len(infected))
+    recovered = pop.recovered()
+    dead = pop.dead()
+    status[0].append(len(healthy))
+    status[1].append(len(infected))
+    status[2].append(len(recovered))
+    status[3].append(len(dead))
 
     # redraw grah
     axes.clear()
-    axes.set_xlim(0, 1.3*len(x1)), axes.set_xticks([])
+    axes.set_xlim(0, 1.25*len(status[0]))
+    # axes.set_xticks([])
     axes.set_ylim(0, pop.pop_size())
-    inf = axes.plot(x2, c='red')
-    health = axes.plot(x1, c='black')
+    axes.plot(status[0], c='black')
+    axes.plot(status[1], c='red')
+    axes.plot(status[2], c='green')
+    axes.plot(status[3], c='gray')
+
 
     # legend
-    labels = [Line2D([0], [0], color='black'), Line2D([0], [0], color='red')]
-    handles = [len(healthy), len(infected)]
+    labels = [Line2D([0], [0], color='black'), Line2D([0], [0], color='red'), Line2D([0], [0], color='green'), Line2D([0], [0], color='gray')]
+    handles = [len(healthy), len(infected) , len(recovered), len(dead)]
     axes.legend(labels, handles, loc = 'upper right')
 
 plt.show()

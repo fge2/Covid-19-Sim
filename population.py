@@ -8,11 +8,11 @@ from person import Person
 #   size:   number of persons in list   
 #   vel:    speed of individual
 #   theta:  trajectory
-#   status: health/infected
+#   status: health/infected/recovered/dead
 #   locked: movement restricted/free
 #
 # methods:
-#   quarantine: lockdown movement of a given number of persons
+#   lockdown: lockdown movement of a given number of persons
 #       args: 
 #           qty: quantity
 #   other: various methods to return subsets of population
@@ -24,6 +24,8 @@ class Population:
 
         # initialize patient 0
         self.pop[n_size - 1].status = 1
+        self.pop[n_size - 1].xpos = 0.1
+        self.pop[n_size - 1].set_recover(400)
         
     def lockdown(self, qty):
         for i in range(qty):
@@ -32,17 +34,23 @@ class Population:
     def pop_size(self):
         return self.size
 
-    def infected(self):
-        return [p for p in self.pop if p.status == 1]
+    def status(self):
+        return [p.status for p in self.pop]
 
     def healthy(self):
         return [p for p in self.pop if p.status == 0]
 
+    def infected(self):
+        return [p for p in self.pop if p.status == 1]
+
+    def recovered(self):
+        return [p for p in self.pop if p.status == 2]
+
+    def dead(self):
+        return [p for p in self.pop if p.status == 3]
+
     def active(self):
         return [p for p in self.pop if p.locked == 0]
-
-    def status(self):
-        return [p.status for p in self.pop]
 
     def xposition(self):
         return [p.xpos for p in self.pop]
