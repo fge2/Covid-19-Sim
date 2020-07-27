@@ -63,7 +63,7 @@ if __name__ == "__main__":
     n_size = 400
     pop = Population(n_size)
     wall = 0.25
-    lag = 500
+    lag = 400
 
     # textbox to track frame number
     time = ax1.text(1, 1.05, "frame number: " + str(0), transform=ax1.transAxes, fontsize=8, verticalalignment='top', horizontalalignment='right')
@@ -83,5 +83,5 @@ if __name__ == "__main__":
 
     # Construct the animation, using the update function as the animation director.
     animation = FuncAnimation(fig, updatev3, fargs = [pop, status, ax1, ax2, scat, restriction, colormap, time, wall, lag], interval=10)
-    fig.suptitle('Covid-19 Simulation: 25% of population quarantined')
+    fig.suptitle('Covid-19 Simulation: 25% Regional Quarantine')
     plt.show()

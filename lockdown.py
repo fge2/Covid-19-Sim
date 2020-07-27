@@ -49,5 +49,5 @@ if __name__ == "__main__":
 
     # Construct the animation, using the update function as the animation director.
     animation = FuncAnimation(fig, updatev2, fargs = [pop, status, ax1, ax2, scat, colormap, time], interval=10)
-    fig.suptitle('Covid-19 Simulation: Lockdown at 10% of population infected')
+    fig.suptitle('Covid-19 Simulation: Lockdown at 10% Infected Population')
     plt.show()
