@@ -11,7 +11,7 @@ python animate.py
 ![](unrestrained.gif)
 
 ## Lockdown
-Simulation where 90% population lockdown is enforced at 10% infections. Both percentages are parameters that can be altered within the code. Lockdown appears effective in limiting infections and the virus quickly dies out. A majority of the population is never infected.
+Simulation where 90% of population is subjected to lockdown and movement is prohibited. Lockdown goes into effect at 10% infections. Both percentages are parameters that can be altered within the code. Lockdown appears effective in limiting infections and the virus quickly dies out. A majority of the population is never infected.
 
 ```
 python lockdown.py
