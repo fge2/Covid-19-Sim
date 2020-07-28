@@ -24,7 +24,7 @@ python lockdown.py
 Lockdown appears effective in limiting infections and the virus quickly dies out. A majority of the population is never infected.
 
 ## Quarantine
-Simulation where 25% of the environment area is quarantined. Quarantine is slowly fazed out after a set number of frames. Patient zero is placed in quarantined area. Parameters include the area of the quarantine zone as well as when to end the quarantine. 
+Simulation where 25% of the environment area is quarantined. Quarantine is slowly fazed out after a set number of frames. Patient zero is placed in quarantined area. Parameters include the area of the quarantine zone as well as when to end the quarantine..
 ```
 python quarantine.py
 ```
